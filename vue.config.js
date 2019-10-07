@@ -8,6 +8,7 @@ function resolve(dir) {
 
 const name = defaultSettings.title || 'vue Admin Template' // page title
 const port = 9528 // dev port
+const backIp = "http://127.0.0.1:9292"
 
 // All configuration item explanations can be find in https://cli.vuejs.org/config/
 module.exports = {
@@ -22,6 +23,7 @@ module.exports = {
   outputDir: 'dist',
   assetsDir: 'static',
   // lintOnSave: process.env.NODE_ENV === 'development',
+  lintOnSave: false, 
   productionSourceMap: false,
   devServer: {
     port: port,
@@ -35,7 +37,8 @@ module.exports = {
       // detail: https://cli.vuejs.org/config/#devserver-proxy
       [process.env.VUE_APP_BASE_API]: {
         ws: false,
-        target: `http://47.101.170.24:8080`,
+        // target: `http://47.101.170.24:8080`,
+        target: backIp,
         changeOrigin: true,
         pathRewrite: {
           ['^' + process.env.VUE_APP_BASE_API]: ''
