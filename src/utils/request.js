@@ -44,13 +44,8 @@ service.interceptors.response.use(
    */
   response => {
     const res = response.data;
-    if(Object.prototype.toString.call(res)=='[object String]'){
-      let keyValueMap = res.slice(1,res.data.length-1).split(/[,=]/);
-      console.log(keyValueMap);
-      return Promise.reject("token出现异常");
-    }
     if (res.data.code == 200) {
-      console.log(res);// debugger
+      // console.log(res);// debugger
       return res;
     } else {
       Message({
