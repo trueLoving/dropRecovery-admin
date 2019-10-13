@@ -53,6 +53,9 @@ service.interceptors.response.use(
         type: 'error',
         duration: 5 * 1000
       })
+      setInterval(()=>{
+        window.location.reload();
+      },1000)
       return Promise.reject(res.data.errMsg || 'error')
     }
   },
@@ -63,6 +66,9 @@ service.interceptors.response.use(
       type: 'error',
       duration: 5 * 1000
     })
+    setInterval(()=>{
+      window.location.reload();
+    },1000)
     return Promise.reject(error)
   }
 )

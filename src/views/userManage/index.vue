@@ -1,5 +1,6 @@
 <template>
   <div class="user-container">
+    <el-button type="primary" size="mini" style="float:right">add user</el-button>
     <el-table :data="tableData" style="width: 100%" v-loading="listLoading">
       <el-table-column label="username" prop="username" align="center"></el-table-column>
       <el-table-column label="name" prop="name" align="center"></el-table-column>
@@ -11,13 +12,10 @@
           >{{ scope.row.locked | statusFilter }}</el-tag>
         </template>
       </el-table-column>
-      <el-table-column align="center">
-        <template slot="header" slot-scope="scope">
-          <el-input v-model="search" size="mini" placeholder="输入关键字搜索" />
-        </template>
+      <el-table-column align="center" label="action">
         <template slot-scope="scope">
-          <el-button size="mini" type="primary" @click="handleEdit(scope.$index, scope.row)">Edit</el-button>
-          <el-button size="mini" type="danger" @click="handleDelete(scope.$index, scope.row)">Delete</el-button>
+          <el-button size="mini" type="primary" @click="handleEdit(scope.$index, scope.row)" icon="el-icon-edit">Edit</el-button>
+          <el-button size="mini" type="danger" @click="handleDelete(scope.$index, scope.row)" icon="el-icon-delete">Delete</el-button>
         </template>
       </el-table-column>
     </el-table>
