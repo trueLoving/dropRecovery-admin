@@ -15,6 +15,10 @@ import router from './router'
 import '@/icons' // icon
 import '@/permission' // permission control
 
+
+import * as filters from './filters' // global filters
+
+
 /**
  * If you don't want to use mock-server
  * you want to use mockjs for request interception
@@ -28,6 +32,11 @@ import '@/permission' // permission control
 Vue.use(ElementUI, { locale })
 
 Vue.config.productionTip = false
+
+// register global utility filters
+Object.keys(filters).forEach(key => {
+  Vue.filter(key, filters[key])
+})
 
 new Vue({
   el: '#app',
