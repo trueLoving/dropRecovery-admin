@@ -126,39 +126,6 @@ export const constantRoutes = [
 ]
 
 export const asyncRoutes = [
-  {
-    path: '/testOne',
-    component: Layout,
-    children: [
-      {
-        path: "/index",
-        component: () => import('@/views/testOne'),
-        name: "TestOne",
-        meta: {
-          title: "测试1",
-          roles: ['user'],
-          icon: 'user'
-        }
-      }
-    ]
-  },
-  {
-    path: '/testTwo',
-    component: Layout,
-    children: [
-      {
-        path: "/index",
-        component: () => import('@/views/testTwo'),
-        name: "TestTWOe",
-        meta: {
-          title: "测试2",
-          roles: ['superAdmin'],
-          icon: 'user'
-
-        }
-      }
-    ]
-  },
 
 ];
 
