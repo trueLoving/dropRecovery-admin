@@ -91,16 +91,49 @@ export const constantRoutes = [
   {
     path: '/projectManage',
     component: Layout,
+    redirect:"/projectManage/activityManage",
+    name:"ProjectManage",
+    meta: {
+      title: "项目管理",
+      icon: 'project'
+    },
     children: [
       {
-        path: 'index',
-        component: () => import('@/views/projectManage/index'),
-        name: "projectManage",
+        path:"activityManage",
+        component:()=>import("@/views/projectManage/activityManage/index.vue"),
+        name:"ActivityManage",
         meta: {
-          title: "项目管理",
-          icon: 'project'
+          title: "活动管理",
+          icon: 'activity'
         }
-      }
+      },
+      {
+        path:"noticeManage",
+        component:()=>import("@/views/projectManage/noticeManage/index.vue"),
+        name:"NoticeManage",
+        meta: {
+          title: "通知管理",
+          icon: 'notice'
+        }
+      },
+      {
+        path:"rejectManage",
+        component:()=>import("@/views/projectManage/rejectManage/index.vue"),
+        name:"RejectManage",
+        meta: {
+          title: "废品管理",
+          icon: 'reject'
+        }
+      },
+      {
+        path:"tradeManage",
+        component:()=>import("@/views/projectManage/tradeManage/index.vue"),
+        name:"TradeManage",
+        meta: {
+          title: "交易管理",
+          icon: 'trade'
+        }
+      },
     ]
   },
 
