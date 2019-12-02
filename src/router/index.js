@@ -140,16 +140,29 @@ export const constantRoutes = [
   {
     path: '/systemManage',
     component: Layout,
+    meta: {
+      title: "系统管理",
+      icon: 'system'
+    },
     children: [
       {
-        path: 'index',
-        component: () => import('@/views/systemManage/index'),
-        name: "systemManage",
+        path:"index",
+        component:()=>import("@/views/systemManage/systemLog/index.vue"),
+        name:"ActivityManage",
         meta: {
-          title: "系统管理",
-          icon: 'system'
+          title: "日志管理",
+          icon: 'log'
         }
-      }
+      },
+      {
+        path:"systemParams",
+        component:()=>import("@/views/systemManage/systemParams/index.vue"),
+        name:"NoticeManage",
+        meta: {
+          title: "参数管理",
+          icon: 'params'
+        }
+      },
     ]
   },
 
