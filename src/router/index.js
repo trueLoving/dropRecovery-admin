@@ -56,6 +56,19 @@ export const constantRoutes = [
   },
 
   {
+    path: '/personal',
+    component: Layout,
+    children: [{
+      path: 'index',
+      name: '修改密码',
+      component: () => import('@/views/personal/index'),
+      meta: { title: '密码修改' },
+      hidden:true
+    }]
+  },
+
+
+  {
     path: '/userManage',
     component: Layout,
     children: [
