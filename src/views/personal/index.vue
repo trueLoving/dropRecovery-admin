@@ -1,7 +1,7 @@
 <template>
   <div class="system-container">
     <h1>个人中心</h1>
-    <div class="system-text">系统参数</div>
+    <div class="system-text">密码修改</div>
   </div>
 </template>
 <script>
