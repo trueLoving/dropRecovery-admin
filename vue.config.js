@@ -23,7 +23,7 @@ module.exports = {
   outputDir: 'dist',
   assetsDir: 'static',
   // lintOnSave: process.env.NODE_ENV === 'development',
-  lintOnSave: false, 
+  lintOnSave: false,
   productionSourceMap: false,
   devServer: {
     port: port,
@@ -32,19 +32,7 @@ module.exports = {
       warnings: false,
       errors: true
     },
-    proxy: {
-      // change xxx-api/login => mock/login
-      // detail: https://cli.vuejs.org/config/#devserver-proxy
-      [process.env.VUE_APP_BASE_API]: {
-        ws: false,
-        target: `http://localhost:9292`,
-        // target: backIp,
-        changeOrigin: true,
-        pathRewrite: {
-          ['^' + process.env.VUE_APP_BASE_API]: ''
-        }
-      }
-    },
+    before: require('./mock/mock-server.js')
     // after: require('./mock/mock-server.js')
   },
   configureWebpack: {

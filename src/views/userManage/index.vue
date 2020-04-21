@@ -31,7 +31,6 @@
 
 <script>
 import Pagination from "@/components/Pagination"; // secondary package based on el-pagination
-import * as userApi from "../../api/userManage";
 
 export default {
   components: {
@@ -81,7 +80,7 @@ export default {
     }
   },
   created() {
-    this.getList();
+    // this.getList();
   }
 };
 </script>

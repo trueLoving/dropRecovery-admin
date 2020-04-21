@@ -20,20 +20,20 @@ const mutations = {
     state.avatar = avatar
   },
   SET_ROLES: (state,roles)=>{
-    state.roles = roles
+    state.roles = roles;
   }
 }
 
 const actions = {
   // user login
   login({ commit }, userInfo) {
-    const { username, password } = userInfo
+    const { username, password } = userInfo;
     return new Promise((resolve, reject) => {
       login({ username: username.trim(), password: password }).then(response => {
-        const { data } = response
-        commit('SET_TOKEN', data.token)
-        setToken(data.token)
-        resolve()
+        const { data } = response;
+        commit('SET_TOKEN', data.token);
+        setToken(data.token);
+        resolve();
       }).catch(error => {
         reject(error);
       })
@@ -45,17 +45,18 @@ const actions = {
     return new Promise((resolve, reject) => {
       getInfo(state.token).then(response => {
 
-        console.log(response);
-
         const { data } = response
 
         if (!data) {
           reject('Verification failed, please Login again.')
         }
-        commit('SET_NAME', data.userInfo.name)
-        commit('SET_AVATAR', "")
-        commit('SET_ROLES',[data.userInfo.role])
-        resolve(data)
+
+        commit('SET_NAME', data.name)
+        commit('SET_AVATAR', data.avatar);
+        commit('SET_ROLES',data.roles);
+
+        resolve(data);
+
       }).catch(error => {
         reject(error)
       })

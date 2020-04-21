@@ -26,20 +26,18 @@ router.beforeEach(async (to, from, next) => {
       next({ path: '/' })
       NProgress.done()
     } else {
-      const hasRoles = store.getters.roles && store.getters.roles.length > 0
+      const hasRoles = store.getters.roles && store.getters.roles.length > 0;
       if (hasRoles) {
         next()
       } else {
         try {
           // get user info
-          const { userInfo } = await store.dispatch('user/getInfo')
+          const userInfo = await store.dispatch('user/getInfo')
 
-          const roles = [userInfo.role];
+          const roles = userInfo.roles;
 
           // generate accessible routes map based on roles
           const accessRoutes = await store.dispatch('permission/generateRoutes', roles)
-
-          console.log(accessRoutes);
 
           // dynamically add accessible routes
           router.addRoutes(accessRoutes)

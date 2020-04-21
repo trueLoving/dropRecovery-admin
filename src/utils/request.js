@@ -32,43 +32,27 @@ service.interceptors.request.use(
 
 // response interceptor
 service.interceptors.response.use(
-  /**
-   * If you want to get http information such as headers or status
-   * Please return  response => response
-  */
 
-  /**
-   * Determine the request status by custom code
-   * Here is just an example
-   * You can also judge the status by HTTP Status Code
-   */
   response => {
-    const res = response.data;
-    if (res.data.code == 200) {
-      // console.log(res);// debugger
-      return res;
+    const {data} = response;
+    if (data.code === 20000) {
+      return data;
     } else {
+      console.log(data); // debug
       Message({
-        message: res.data.errMsg || 'error',
+        message: data.message || 'error',
         type: 'error',
         duration: 5 * 1000
       })
-      setInterval(()=>{
-        window.location.reload();
-      },1000)
-      return Promise.reject(res.data.errMsg || 'error')
+      return Promise.reject(data.message || 'error')
     }
   },
   error => {
-    console.log('err' + error) // for debug
     Message({
       message: error.message,
       type: 'error',
       duration: 5 * 1000
     })
-    // setInterval(()=>{
-    //   window.location.reload();
-    // },1000)
     return Promise.reject(error)
   }
 )
