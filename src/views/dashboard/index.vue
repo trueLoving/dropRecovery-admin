@@ -1,25 +1,24 @@
 <template>
   <div class="dashboard-container">
-    <component :is="currentRole" />
+    content
   </div>
 </template>
 
 <script>
-import { mapGetters } from "vuex";
-import adminDashboard from './admin'
-
 export default {
   name: "Dashboard",
-  computed: {
-    ...mapGetters(["name"])
+  computed: {},
+  data() {
+    return {};
   },
-  data(){
-    return {
-      currentRole: 'adminDashboard'
-    }
-  },
-  components:{
-    adminDashboard
-  }
+  components: {}
 };
 </script>
+
+<style lang="scss" scoped>
+.dashboard {
+  &-container {
+    margin: 30px;
+  }
+}
+</style>

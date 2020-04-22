@@ -5,7 +5,18 @@
   </div>
 </template>
 <script>
-export default {};
+
+import * as api from '@/api/logs'
+
+export default {
+
+  mounted(){
+    api.getLogs().then((res)=>{
+      console.log(res);
+    })
+  }
+
+};
 </script>
 <style lang="scss" scoped>
 .system {
