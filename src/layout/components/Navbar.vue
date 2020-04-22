@@ -17,11 +17,9 @@
               首页
             </el-dropdown-item>
           </router-link>
-          <router-link to="/personal/index">
-            <el-dropdown-item>
-              密码修改
-            </el-dropdown-item>
-          </router-link>
+          <el-dropdown-item>
+            <span style="display:block;" @click="openDialog">修改登录密码</span>
+          </el-dropdown-item>
           <el-dropdown-item divided>
             <span style="display:block;" @click="logout">退出</span>
           </el-dropdown-item>
@@ -67,6 +65,9 @@ export default {
           });          
         });
 
+    },
+    openDialog(){
+      this.$message.success('change pwd');
     }
   }
 }
