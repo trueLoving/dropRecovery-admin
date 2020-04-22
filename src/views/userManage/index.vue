@@ -6,7 +6,15 @@
 
 <script>
 
+import * as api from '@/api/users';
+
 export default {
+
+  mounted(){
+    api.getUsers().then((res)=>{
+      console.log(res);
+    })
+  }
 
 };
 </script>

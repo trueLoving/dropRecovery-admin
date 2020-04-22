@@ -1,15 +1,15 @@
-  
-import Mock from 'mockjs'
+  import Mock from 'mockjs'
 
 const data = Mock.mock({
   'items|120': [{
-    id: '@id',
-    'method|1':'get|post|put|delete',
-    user: 'name',
+    'id': '@increment',
+    'method|1':['get','post','put','delete'],
+    user: Mock.Random.cname(),
     ip:Mock.Random.ip(),
-    remarks:Mock.Random.sentence(10,20)
+    remarks:Mock.Random.sentence(5,10),
+    create_time: '@datetime',
   }]
-})
+})  
 
 export default [
   {

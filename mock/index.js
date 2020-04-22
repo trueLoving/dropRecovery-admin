@@ -1,11 +1,22 @@
 import Mock from 'mockjs'
 import { param2Obj } from '../src/utils'
 
+
+Mock.Random.extend({
+  phone:function(){
+    var phonePrefixs = ['132','135','137','173'];
+    return this.pick(phonePrefixs) + Mock.mock(/\d{8}/)
+  }
+})
+
 import user from './user'
-import log from './log'
+import users from "./users";
+import log from './logs'
+
 
 const mocks = [
   ...user,
+  ...users,
   ...log
 ]
 
