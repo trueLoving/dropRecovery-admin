@@ -18,7 +18,7 @@
             </el-dropdown-item>
           </router-link>
           <el-dropdown-item>
-            <span style="display:block;" @click="openDialog">修改登录密码</span>
+            <span style="display:block;" @click="$refs.PwdChangeDialog.openDialog()">修改登录密码</span>
           </el-dropdown-item>
           <el-dropdown-item divided>
             <span style="display:block;" @click="logout">退出</span>
@@ -26,6 +26,9 @@
         </el-dropdown-menu>
       </el-dropdown>
     </div>
+
+    <PwdChangeDialog ref="PwdChangeDialog"/>
+
   </div>
 </template>
 
@@ -33,11 +36,14 @@
 import { mapGetters } from 'vuex'
 import Breadcrumb from '@/components/Breadcrumb'
 import Hamburger from '@/components/Hamburger'
+import PwdChangeDialog from "./PwdChangeDialog";
+
 
 export default {
   components: {
     Breadcrumb,
-    Hamburger
+    Hamburger,
+    PwdChangeDialog
   },
   computed: {
     ...mapGetters([
@@ -65,9 +71,6 @@ export default {
           });          
         });
 
-    },
-    openDialog(){
-      this.$message.success('change pwd');
     }
   }
 }
