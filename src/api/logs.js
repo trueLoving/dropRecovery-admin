@@ -1,8 +1,9 @@
 import request from '@/utils/request'
 
-export function getLogs() {
+export function getLogs(data) {
     return request({
         url: '/logs/list',
-        method: 'get'
+        method: 'get',
+        data
     })
 }
