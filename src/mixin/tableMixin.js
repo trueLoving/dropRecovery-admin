@@ -12,7 +12,6 @@ let tableMixin = {
     },
     data() {
         return {
-            originList:[],
             list:[],
             total:100,
             listQuery:{
@@ -23,9 +22,6 @@ let tableMixin = {
         }
     },
     methods: {
-        getList(){
-            
-        }
     },
 }
 

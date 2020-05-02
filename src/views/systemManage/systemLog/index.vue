@@ -17,7 +17,7 @@
       >
         <el-option v-for="item in methodOperation" :key="item" :label="item" :value="item" />
       </el-select>
-      <el-button class="filter-item" type="primary" icon="el-icon-search" @click="getList">搜索</el-button>
+      <el-button class="filter-item" type="primary" icon="el-icon-search" @click="handleFilter">搜索</el-button>
     </div>
 
     <el-table :data="list" style="width: 100%" v-loading="listLoading">
@@ -58,7 +58,9 @@ export default {
   },
   methods: {
     handleFilter() {
-      console.log(this.listQuery);
+      this.listQuery.page = 1;
+      this.listQuery.limit = 10;
+      this.getList();
     },
     getList() {
       this.listLoading = true;
