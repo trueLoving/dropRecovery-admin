@@ -58,7 +58,7 @@ export default {
         },
         series: [
           {
-            data: [120, 200, 150, 80, 70, 110, 130],
+            data: [12, 22, 15, 8, 7, 11, 13],
             type: "bar"
           }
         ]
