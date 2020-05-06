@@ -29,7 +29,7 @@ export function deleteUser(data) {
 export function modifyUser(data) {
     return request({
         url: '/users/modify',
-        method: 'get',
+        method: 'post',
         data
     })
 }

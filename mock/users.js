@@ -45,15 +45,11 @@ export default [
   // 添加用户
   {
     url: '/users/add',
-    type: 'get',
-    response: config => {
-      const items = data.items
+    type: 'post',
+    response: _ => {
       return {
         code: 20000,
-        data: {
-          total: items.length,
-          items: items
-        }
+        data: 'success'
       }
     }
   },
@@ -61,14 +57,10 @@ export default [
   {
     url: '/users/delete',
     type: 'get',
-    response: config => {
-      const items = data.items
+    response: _ => {
       return {
         code: 20000,
-        data: {
-          total: items.length,
-          items: items
-        }
+        data: 'success'
       }
     }
   },
@@ -76,14 +68,10 @@ export default [
   {
     url: '/users/modify',
     type: 'post',
-    response: config => {
-      const items = data.items
+    response: _ => {
       return {
         code: 20000,
-        data: {
-          total: items.length,
-          items: items
-        }
+        data: 'success'
       }
     }
   }

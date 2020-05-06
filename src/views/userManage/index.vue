@@ -5,17 +5,9 @@
         v-model="conditions.username"
         placeholder="用户名"
         style="width: 200px;"
-        class="filter-item"
         @keyup.enter.native="handleFilter"
       />
-      <el-input
-        v-model="conditions.phone"
-        placeholder="手机号"
-        style="width: 200px;"
-        class="filter-item"
-        @keyup.enter.native="handleFilter"
-      />
-      <el-button class="filter-item" type="primary" icon="el-icon-search" @click="handleFilter">搜索</el-button>
+      <el-button type="primary" icon="el-icon-search" @click="handleFilter">搜索</el-button>
     </div>
 
     <el-table :data="list" style="width: 100%" v-loading="listLoading">
@@ -33,7 +25,7 @@
             round
             size="mini"
             icon="el-icon-edit"
-            @click="handleUpdate(scope.row)"
+            @click="openDialog(scope.row)"
           >更新</el-button>
           <el-button
             type="danger"
@@ -60,18 +52,18 @@
           <el-input v-model="user.username" autocomplete="off"></el-input>
         </el-form-item>
         <el-form-item label="手机号" label-width="140px">
-          <el-input v-model="user.username" autocomplete="off"></el-input>
+          <el-input v-model="user.phone" autocomplete="off"></el-input>
         </el-form-item>
         <el-form-item label="邮箱" label-width="140px">
-          <el-input v-model="user.username" autocomplete="off"></el-input>
+          <el-input v-model="user.email" autocomplete="off"></el-input>
         </el-form-item>
         <el-form-item label="openId" label-width="140px">
-          <el-input v-model="user.username" autocomplete="off"></el-input>
+          <el-input v-model="user.openId" autocomplete="off" readonly="true"></el-input>
         </el-form-item>
       </el-form>
       <div slot="footer" class="dialog-footer">
         <el-button @click="dialogFormVisible = false">取 消</el-button>
-        <el-button type="primary" @click="dialogFormVisible = false">确 定</el-button>
+        <el-button type="primary" @click="handleUpdate">确 定</el-button>
       </div>
     </el-dialog>
 
@@ -100,6 +92,7 @@ import * as api from "@/api/users";
 import tableMixin from "@/mixin/tableMixin";
 
 export default {
+  inject: ["reload"],
   components: {
     LineChart,
     BarChart
@@ -122,14 +115,41 @@ export default {
   },
   methods: {
     handleDelete(id) {
-      this.$message.error(id + "");
+      // this.$message.error(id + "");
+      this.$confirm("此操作将永久删除该用户, 是否继续?", "提示", {
+        confirmButtonText: "确定",
+        cancelButtonText: "取消",
+        type: "warning"
+      })
+        .then(() => {
+          api.deleteUser(id).then(res => {
+            this.$message({
+              type: "success",
+              message: "删除成功!"
+            });
+          });
+        })
+        .catch(() => {
+          this.$message({
+            type: "info",
+            message: "已取消删除"
+          });
+        });
+    },
+    openDialog(user) {
+      this.dialogFormVisible = true;
+      this.user = JSON.parse(JSON.stringify(user));
     },
     handleUpdate(user) {
-      this.dialogFormVisible = true;
-      // this.$message.success(user);
-    },
-    handleAdd(user) {
-      this.$message.success(user.toString());
+      api
+        .modifyUser(user)
+        .then(_ => {
+          this.$message.success("更新成功");
+          this.reload();
+        })
+        .catch(err => {
+          this.$message.error(err.toString());
+        });
     },
     handleFilter() {
       this.listQuery.page = 1;
