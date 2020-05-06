@@ -1,13 +1,113 @@
 <template>
-  <h1>活动管理</h1>
+  <div class="activity-container">
+    <el-table :data="list" style="width: 100%" v-loading="listLoading">
+      <el-table-column label="序号" width="160" align="center">
+        <template slot-scope="scope">{{scope.$index+(listQuery.page - 1) * listQuery.limit + 1}}</template>
+      </el-table-column>
+      <el-table-column prop="title" label="标题" width="200" align="center"></el-table-column>
+      <el-table-column prop="start_time" label="开始时间" width="200" align="center"></el-table-column>
+      <el-table-column prop="end_time" label="结束时间" width="220" align="center"></el-table-column>
+      <el-table-column prop="status" width="220" label="状态" align="center"></el-table-column>
+      <el-table-column prop="des" label="描述" align="center" width="220"></el-table-column>
+      <el-table-column label="操作" align="center">
+        <template slot-scope="scope">
+          <el-button
+            type="primary"
+            round
+            size="mini"
+            icon="el-icon-edit"
+            @click="handleUpdate(scope.row)"
+          >更新</el-button>
+          <el-button
+            type="danger"
+            round
+            size="mini"
+            icon="el-icon-delete"
+            @click="handleDelete(scope.row.id)"
+          >删除</el-button>
+        </template>
+      </el-table-column>
+    </el-table>
+
+    <pagination
+      v-show="total>0"
+      :total="total"
+      :page.sync="listQuery.page"
+      :limit.sync="listQuery.limit"
+      @pagination="getList"
+    />
+    
+  </div>
 </template>
 
 <script>
-export default {
+import * as api from "@/api/activity";
+import tableMixin from "@/mixin/tableMixin";
 
-}
+export default {
+  inject: ["reload"],
+  mixins: [tableMixin],
+  data() {
+    return {
+      conditions: {
+        username: "",
+        phone: ""
+      }
+    };
+  },
+  methods: {
+    handleFilter() {},
+    handleUpdate() {
+      this.$router.push({path:'./activityDetail'})
+    },
+    handleDelete(id) {
+      this.$confirm("此操作将永久删除该活动, 是否继续?", "提示", {
+        confirmButtonText: "确定",
+        cancelButtonText: "取消",
+        type: "warning"
+      })
+        .then(() => {
+          api.deleteActivity(id).then(res => {
+            this.$message({
+              type: "success",
+              message: "删除成功!"
+            });
+            this.reload();
+          });
+        })
+        .catch(() => {
+          this.$message({
+            type: "info",
+            message: "已取消删除"
+          });
+        });
+    },
+    getList() {
+      this.listLoading = true;
+      const conditions = this.conditions;
+      const listQuery = this.listQuery;
+      api.getActivities({ conditions, listQuery }).then(res => {
+        const data = res.data;
+        this.list = data.items;
+        this.total = data.total;
+        this.listLoading = false;
+      });
+    }
+  },
+  mounted() {
+    this.getList();
+  }
+};
 </script>
 
-<style>
-
+<style lang="scss" scoped>
+.activity {
+  &-container {
+    margin: 30px;
+  }
+  &-text {
+    font-size: 30px;
+    line-height: 46px;
+  }
+}
 </style>

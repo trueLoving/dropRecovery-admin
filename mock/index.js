@@ -12,12 +12,14 @@ Mock.Random.extend({
 import user from './user'
 import users from "./users";
 import log from './logs'
+import activity from  './activity'
 
 
 const mocks = [
   ...user,
   ...users,
-  ...log
+  ...log,
+  ...activity
 ]
 
 // for front mock
