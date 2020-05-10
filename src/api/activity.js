@@ -31,3 +31,18 @@ export function addActivity(data) {
         data
     })
 }
+
+export function addCoupon(){
+
+
+}
+
+export function deleteCoupon(){
+
+}
+
+export function modifyCoupon(){
+
+
+}
+

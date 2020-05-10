@@ -5,10 +5,18 @@ const data = Mock.mock({
   'items|12': [{
     id: '@increment',
     'title|1': ['夏日好礼送不停', '冬季乐翻天', '秋日送好礼', '春季新气象'],
-    start_time: '@datetime',
-    end_time: '@datetime',
+    start_time: '@date',
+    end_time: '@date',
     des: '长夏村墟风日清',
     'status|1': ['已上线', '已下线', '筹备中'],
+    'coupon|5':[{
+      id:'@increment',
+      'title|1':['满200减20','满400减40','满500减80','满300减30','满100减5'],
+      'type|1':['无门槛券','满减券','折扣券'],
+      start_time:'@date',
+      end_time:'@date',
+      des:'nothing .... '
+    }]
   }]
 })
 

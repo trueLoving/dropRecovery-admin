@@ -1,5 +1,15 @@
 <template>
   <div class="activity-container">
+    <div class="toolbar">
+      <el-button
+        type="primary"
+        round
+        size="mini"
+        style="float:right"
+        @click="$router.push({path:'./activityManage/activityDetail'})"
+      >添加</el-button>
+    </div>
+
     <el-table :data="list" style="width: 100%" v-loading="listLoading">
       <el-table-column label="序号" width="160" align="center">
         <template slot-scope="scope">{{scope.$index+(listQuery.page - 1) * listQuery.limit + 1}}</template>
@@ -17,7 +27,7 @@
             size="mini"
             icon="el-icon-edit"
             @click="handleUpdate(scope.row)"
-          >更新</el-button>
+          >详情</el-button>
           <el-button
             type="danger"
             round
@@ -36,7 +46,6 @@
       :limit.sync="listQuery.limit"
       @pagination="getList"
     />
-    
   </div>
 </template>
 
@@ -57,8 +66,11 @@ export default {
   },
   methods: {
     handleFilter() {},
-    handleUpdate() {
-      this.$router.push({path:'./activityDetail'})
+    handleUpdate(user) {
+      this.$router.push({
+        path: "./activityManage/activityDetail",
+        query: { user, update: true }
+      });
     },
     handleDelete(id) {
       this.$confirm("此操作将永久删除该活动, 是否继续?", "提示", {
