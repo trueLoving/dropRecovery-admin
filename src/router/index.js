@@ -106,16 +106,17 @@ export const constantRoutes = [
         meta: {
           title: "活动管理",
           icon: 'activity'
-        }
+        },
       },
-      {
+      { 
         hidden:true,
-        path:"activityDetail",
+        path:"activityManage/activityDetail",
         component:()=>import("@/views/projectManage/activityManage/activityDetail.vue"),
         name:"ActivityDetail",
         meta: {
-          title: "活动管理",
+          title: "活动详情",
         }
+
       },
       {
         path:"noticeManage",
