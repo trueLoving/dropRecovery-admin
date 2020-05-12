@@ -8,7 +8,6 @@
         class="filter-item"
         @keyup.enter.native="handleFilter"
       />
-
       <el-select
         v-model="conditions.status"
         placeholder="通知状态"
@@ -37,13 +36,6 @@
       <el-table-column label="操作" align="center">
         <template slot-scope="scope">
           <el-button
-            type="primary"
-            round
-            size="mini"
-            icon="el-icon-edit"
-            @click="handleUpdate(scope.row)"
-          >详情</el-button>
-          <el-button
             type="danger"
             round
             size="mini"
@@ -62,29 +54,28 @@
       @pagination="getList"
     />
 
-
-
+    <NoticeDialog ref="noticeDialog" />
   </div>
 </template>
 
 <script>
 import * as api from "@/api/notice";
 import tableMixin from "@/mixin/tableMixin";
+import NoticeDialog from "./components/NoticeDialog";
 
 export default {
   inject: ["reload"],
   mixins: [tableMixin],
-
+  components: {
+    NoticeDialog
+  },
   data() {
     return {
       conditions: {
         status: "",
         receiver: ""
       },
-      statusOperation:[
-        '已读',
-        '未读'
-      ]
+      statusOperation: ["已读", "未读"]
     };
   },
   methods: {
@@ -93,7 +84,10 @@ export default {
       this.listQuery.limit = 10;
       this.getList();
     },
-    handleUpdate(notice) {},
+    handleUpdate(notice) {
+      const n = JSON.parse(JSON.stringify(notice));
+      this.$refs.noticeDialog.openDialog(n, true);
+    },
     handleDelete(id) {
       this.$confirm("此操作将永久删除该通知, 是否继续?", "提示", {
         confirmButtonText: "确定",
@@ -116,7 +110,9 @@ export default {
           });
         });
     },
-    handleAdd() {},
+    handleAdd() {
+      this.$refs.noticeDialog.openDialog();
+    },
     getList() {
       this.listLoading = true;
       const conditions = this.conditions;

@@ -79,14 +79,14 @@ export default [
     {
         url: '/notices/receiver/list',
         type: 'get',
-        config: _ => {
+        response: _ => {
 
-            const items = data.item;
+            const items = data.items
 
             let receivers = [];
 
             items.forEach((item) => {
-                receivers.splice(item.receiver);
+                receivers.push(item.receiver);
             })
 
             return {

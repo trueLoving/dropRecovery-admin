@@ -32,3 +32,10 @@ export function modifyNotice(data) {
         data
     })
 }
+
+export function getReceivers() {
+    return request({
+        url: '/notices/receiver/list',
+        method: 'get'
+    })
+}
