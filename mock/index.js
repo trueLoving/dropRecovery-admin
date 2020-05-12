@@ -14,13 +14,15 @@ import users from "./users";
 import log from './logs'
 import activity from  './activity'
 import notice from "./notice";
+import trade from "./trade";
 
 const mocks = [
   ...user,
   ...users,
   ...log,
   ...activity,
-  ...notice
+  ...notice,
+  ...trade
 ]
 
 // for front mock
