@@ -1,6 +1,5 @@
 <template>
   <div class="activity-container">
-
     <div class="toolbar">
       <el-button
         type="primary"
@@ -47,17 +46,24 @@
       :limit.sync="listQuery.limit"
       @pagination="getList"
     />
-    
+
+
+    <BarChart/>
+
   </div>
 </template>
 
 <script>
 import * as api from "@/api/activity";
 import tableMixin from "@/mixin/tableMixin";
+import BarChart from "./components/BarChart";
 
 export default {
   inject: ["reload"],
   mixins: [tableMixin],
+  components: {
+    BarChart
+  },
   data() {
     return {
       conditions: {
