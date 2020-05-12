@@ -1,5 +1,6 @@
 <template>
   <div class="activity-container">
+
     <div class="toolbar">
       <el-button
         type="primary"
@@ -46,6 +47,7 @@
       :limit.sync="listQuery.limit"
       @pagination="getList"
     />
+    
   </div>
 </template>
 

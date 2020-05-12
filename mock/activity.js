@@ -9,13 +9,13 @@ const data = Mock.mock({
     end_time: '@date',
     des: '长夏村墟风日清',
     'status|1': ['已上线', '已下线', '筹备中'],
-    'coupon|5':[{
-      id:'@increment',
-      'title|1':['满200减20','满400减40','满500减80','满300减30','满100减5'],
-      'type|1':['无门槛券','满减券','折扣券'],
-      start_time:'@date',
-      end_time:'@date',
-      des:'nothing .... '
+    'coupon|5': [{
+      id: '@increment',
+      'title|1': ['满200减20', '满400减40', '满500减80', '满300减30', '满100减5'],
+      'type|1': ['无门槛券', '满减券', '折扣券'],
+      start_time: '@date',
+      end_time: '@date',
+      des: 'nothing .... '
     }]
   }]
 })
@@ -76,6 +76,39 @@ export default [
   // 修改活动信息
   {
     url: '/activities/modify',
+    type: 'post',
+    response: _ => {
+      return {
+        code: 20000,
+        data: 'success'
+      }
+    }
+  },
+  // 优惠券修改
+  {
+    url: '/coupons/modify',
+    type: 'post',
+    response: _ => {
+      return {
+        code: 20000,
+        data: 'success'
+      }
+    }
+  },
+  // 优惠券添加
+  {
+    url: '/coupons/add',
+    type: 'post',
+    response: _ => {
+      return {
+        code: 20000,
+        data: 'success'
+      }
+    }
+  },
+  // 优惠券删除
+  {
+    url: '/coupons/delete',
     type: 'post',
     response: _ => {
       return {

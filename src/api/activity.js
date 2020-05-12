@@ -32,17 +32,29 @@ export function addActivity(data) {
     })
 }
 
-export function addCoupon(){
-
+export function addCoupon(data){
+    return request({
+        url: '/coupons/add',
+        method: 'post',
+        data
+    })
 
 }
 
-export function deleteCoupon(){
-
+export function deleteCoupon(data){
+    return request({
+        url: '/coupons/add',
+        method: 'get',
+        data
+    })
 }
 
-export function modifyCoupon(){
-
+export function modifyCoupon(data){
+    return request({
+        url: '/coupons/add',
+        method: 'post',
+        data
+    })
 
 }
 
