@@ -44,6 +44,83 @@ const data = {
       time: '2020-04-01 11:00:00',
       remark: 'nothing.......'
     },
+    {
+      id: 5,
+      name: '二手手机',
+      type: '家用电器',
+      recall_price: '1200',
+      amount: '10',
+      sold: '10',
+      is_remainder: '已售罄',
+      time: '2020-04-01 11:00:00',
+      remark: 'nothing.......'
+    },
+    {
+      id: 6,
+      name: '台灯',
+      type: '家用电器',
+      recall_price: '1200',
+      amount: '10',
+      sold: '10',
+      is_remainder: '已售罄',
+      time: '2020-04-01 11:00:00',
+      remark: 'nothing.......'
+    },
+    {
+      id: 7,
+      name: '衣物',
+      type: '其他',
+      recall_price: '1200',
+      amount: '10',
+      sold: '10',
+      is_remainder: '已售罄',
+      time: '2020-04-11 11:20:00',
+      remark: 'nothing.......'
+    },
+    {
+      id: 8,
+      name: '微波炉',
+      type: '家用电器',
+      recall_price: '1200',
+      amount: '100',
+      sold: '10',
+      is_remainder: '未售罄',
+      time: '2020-04-01 11:00:00',
+      remark: 'nothing.......'
+    },
+    {
+      id: 9,
+      name: '烤箱',
+      type: '家用电器',
+      recall_price: '1200',
+      amount: '20',
+      sold: '10',
+      is_remainder: '未售罄',
+      time: '2010-04-01 11:00:00',
+      remark: 'nothing.......'
+    },
+    {
+      id: 10,
+      name: '易拉罐',
+      type: '可回收',
+      recall_price: '1200',
+      amount: '10',
+      sold: '10',
+      is_remainder: '已售罄',
+      time: '2020-04-01 11:00:00',
+      remark: 'nothing.......'
+    },
+    {
+      id: 11,
+      name: '硬盘',
+      type: '计算机设备',
+      recall_price: '120',
+      amount: '10',
+      sold: '10',
+      is_remainder: '已售罄',
+      time: '2020-04-01 11:00:00',
+      remark: 'nothing.......'
+    }
   ]
 }
 
