@@ -3,8 +3,8 @@ import { param2Obj } from '../src/utils'
 
 
 Mock.Random.extend({
-  phone:function(){
-    var phonePrefixs = ['132','135','137','173'];
+  phone: function () {
+    var phonePrefixs = ['132', '135', '137', '173'];
     return this.pick(phonePrefixs) + Mock.mock(/\d{8}/)
   }
 })
@@ -12,9 +12,10 @@ Mock.Random.extend({
 import user from './user'
 import users from "./users";
 import log from './logs'
-import activity from  './activity'
+import activity from './activity'
 import notice from "./notice";
 import trade from "./trade";
+import reject from "./reject";
 
 const mocks = [
   ...user,
@@ -22,7 +23,8 @@ const mocks = [
   ...log,
   ...activity,
   ...notice,
-  ...trade
+  ...trade,
+  ...reject
 ]
 
 // for front mock
@@ -32,7 +34,7 @@ export function mockXHR() {
   // mock patch
   // https://github.com/nuysoft/Mock/issues/300
   Mock.XHR.prototype.proxy_send = Mock.XHR.prototype.send
-  Mock.XHR.prototype.send = function() {
+  Mock.XHR.prototype.send = function () {
     if (this.custom.xhr) {
       this.custom.xhr.withCredentials = this.withCredentials || false
 
@@ -44,7 +46,7 @@ export function mockXHR() {
   }
 
   function XHR2ExpressReqWrap(respond) {
-    return function(options) {
+    return function (options) {
       let result = null
       if (respond instanceof Function) {
         const { body, type, url } = options
