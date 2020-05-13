@@ -51,7 +51,7 @@ export const constantRoutes = [
       path: 'dashboard',
       name: 'Dashboard',
       component: () => import('@/views/dashboard/index'),
-      meta: { title: '首页', icon: 'dashboard',affix: true }
+      meta: { title: '首页', icon: 'dashboard', affix: true }
     }]
   },
 
@@ -88,69 +88,9 @@ export const constantRoutes = [
     ]
   },
 
-
-  {
-    path: '/projectManage',
-    component: Layout,
-    redirect:"/projectManage/activityManage",
-    name:"ProjectManage",
-    meta: {
-      title: "项目管理",
-      icon: 'project'
-    },
-    children: [
-      {
-        path:"activityManage",
-        component:()=>import("@/views/projectManage/activityManage/index.vue"),
-        name:"ActivityManage",
-        meta: {
-          title: "活动管理",
-          icon: 'activity'
-        },
-      },
-      { 
-        hidden:true,
-        path:"activityManage/activityDetail",
-        component:()=>import("@/views/projectManage/activityManage/activityDetail.vue"),
-        name:"ActivityDetail",
-        meta: {
-          title: "活动详情",
-        }
-
-      },
-      {
-        path:"noticeManage",
-        component:()=>import("@/views/projectManage/noticeManage/index.vue"),
-        name:"NoticeManage",
-        meta: {
-          title: "通知管理",
-          icon: 'notice'
-        }
-      },
-      {
-        path:"rejectManage",
-        component:()=>import("@/views/projectManage/rejectManage/index.vue"),
-        name:"RejectManage",
-        meta: {
-          title: "废品管理",
-          icon: 'reject'
-        }
-      },
-      {
-        path:"tradeManage",
-        component:()=>import("@/views/projectManage/tradeManage/index.vue"),
-        name:"TradeManage",
-        meta: {
-          title: "交易管理",
-          icon: 'trade'
-        }
-      },
-    ]
-  },
-
   {
     path: '/systemManage',
-    redirect:'/systemManage/systemLogs',
+    redirect: '/systemManage/systemLogs',
     component: Layout,
     meta: {
       title: "系统管理",
@@ -158,21 +98,90 @@ export const constantRoutes = [
     },
     children: [
       {
-        path:"systemLogs",
-        component:()=>import("@/views/systemManage/systemLog/index.vue"),
-        name:"SystemLogs",
+        path: "systemLogs",
+        component: () => import("@/views/systemManage/systemLog/index.vue"),
+        name: "SystemLogs",
         meta: {
           title: "日志管理",
           icon: 'log'
         }
       },
       {
-        path:"systemParams",
-        component:()=>import("@/views/systemManage/systemParams/index.vue"),
-        name:"SystemParams",
+        path: "systemMonitor",
+        component: () => import("@/views/systemManage/systemMonitor/index.vue"),
+        name: "SystemMonitor",
+        meta: {
+          title: "系统监控",
+          icon: 'monitor'
+        }
+      },
+      {
+        path: "systemParams",
+        component: () => import("@/views/systemManage/systemParams/index.vue"),
+        name: "SystemParams",
         meta: {
           title: "参数管理",
           icon: 'params'
+        }
+      }
+    ]
+  },
+
+
+  {
+    path: '/projectManage',
+    component: Layout,
+    redirect: "/projectManage/activityManage",
+    name: "ProjectManage",
+    meta: {
+      title: "项目管理",
+      icon: 'project'
+    },
+    children: [
+      {
+        path: "activityManage",
+        component: () => import("@/views/projectManage/activityManage/index.vue"),
+        name: "ActivityManage",
+        meta: {
+          title: "活动管理",
+          icon: 'activity'
+        },
+      },
+      {
+        hidden: true,
+        path: "activityManage/activityDetail",
+        component: () => import("@/views/projectManage/activityManage/activityDetail.vue"),
+        name: "ActivityDetail",
+        meta: {
+          title: "活动详情",
+        }
+
+      },
+      {
+        path: "noticeManage",
+        component: () => import("@/views/projectManage/noticeManage/index.vue"),
+        name: "NoticeManage",
+        meta: {
+          title: "通知管理",
+          icon: 'notice'
+        }
+      },
+      {
+        path: "rejectManage",
+        component: () => import("@/views/projectManage/rejectManage/index.vue"),
+        name: "RejectManage",
+        meta: {
+          title: "废品管理",
+          icon: 'reject'
+        }
+      },
+      {
+        path: "tradeManage",
+        component: () => import("@/views/projectManage/tradeManage/index.vue"),
+        name: "TradeManage",
+        meta: {
+          title: "交易管理",
+          icon: 'trade'
         }
       },
     ]
