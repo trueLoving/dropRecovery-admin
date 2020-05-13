@@ -18,7 +18,7 @@
       <el-table-column prop="phone" label="手机号" width="200" align="center"></el-table-column>
       <el-table-column prop="email" label="邮箱" width="220" align="center"></el-table-column>
       <el-table-column prop="openId" label="openId" align="center"></el-table-column>
-      <el-table-column label="操作" align="center">
+      <el-table-column label="操作" align="center" fixed="right" width="200">
         <template slot-scope="scope">
           <el-button
             type="primary"

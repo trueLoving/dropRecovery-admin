@@ -34,7 +34,7 @@
       </el-table-column>
       <el-table-column prop="content" label="内容" align="center" width="620"></el-table-column>
       <el-table-column label="操作" align="center">
-        <template slot-scope="scope">
+        <template slot-scope="scope" fixed="right" width="100">
           <el-button
             type="danger"
             round

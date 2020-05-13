@@ -10,7 +10,7 @@
       <el-table-column prop="amount" width="160" label="总数" align="center"></el-table-column>
       <el-table-column prop="sold" label="已售数" align="center" width="120"></el-table-column>
       <el-table-column prop="is_remainder" label="是否售罄" align="center" width="120"></el-table-column> 
-      <el-table-column prop="remark" label="备注" align="center"  width="220"></el-table-column>
+      <el-table-column prop="remark" label="备注" align="center"></el-table-column>
     <el-table-column label="操作" align="center" fixed="right" width="200">
         <template slot-scope="{row}">
           <el-button
