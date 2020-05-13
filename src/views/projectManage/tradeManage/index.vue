@@ -123,7 +123,6 @@ export default {
       const conditions = this.conditions;
       const listQuery = this.listQuery;
       api.getTrades({ conditions, listQuery }).then(res => {
-        console.log(res);
         const data = res.data;
         this.list = data.items;
         this.total = data.total;
