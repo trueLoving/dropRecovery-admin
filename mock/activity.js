@@ -30,13 +30,12 @@ export default [
       const { conditions, listQuery } = config.body;
 
       const { page = 1, limit = 20 } = listQuery;
-      const { username, phone } = conditions;
+      const { status } = conditions;
 
       const items = data.items
 
       let mockList = items.filter(item => {
-        if (username && item.username !== username) return false
-        if (phone && item.phone !== phone) return false;
+        if (status && item.status !== status) return false;
         return true;
       })
 

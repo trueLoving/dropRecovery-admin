@@ -1,6 +1,16 @@
 <template>
   <div class="activity-container">
     <div class="toolbar">
+      <el-select
+        v-model="conditions.status"
+        placeholder="通知状态"
+        clearable
+        style="width:120px"
+        class="filter-item"
+      >
+        <el-option v-for="item in statusOptions" :key="item" :label="item" :value="item" />
+      </el-select>
+      <el-button class="filter-item" type="primary" icon="el-icon-search" @click="handleFilter">搜索</el-button>
       <el-button
         type="primary"
         round
@@ -47,9 +57,7 @@
       @pagination="getList"
     />
 
-
-    <BarChart/>
-
+    <BarChart />
   </div>
 </template>
 
@@ -67,13 +75,17 @@ export default {
   data() {
     return {
       conditions: {
-        username: "",
-        phone: ""
-      }
+        status: ""
+      },
+      statusOptions: ["已下线", "已上线", "筹备中"]
     };
   },
   methods: {
-    handleFilter() {},
+    handleFilter() {
+      this.listQuery.page = 1;
+      this.listQuery.limit = 10;
+      this.getList();
+    },
     handleUpdate(user) {
       this.$router.push({
         path: "./activityManage/activityDetail",
