@@ -28,7 +28,7 @@
       <el-table-column prop="start_time" label="开始时间" width="200" align="center"></el-table-column>
       <el-table-column prop="end_time" label="结束时间" width="220" align="center"></el-table-column>
       <el-table-column prop="status" width="220" label="状态" align="center"></el-table-column>
-      <el-table-column prop="des" label="描述" align="center" width="220"></el-table-column>
+      <el-table-column prop="des" label="描述" align="center"></el-table-column>
       <el-table-column label="操作" align="center" fixed="right" width="200">
         <template slot-scope="scope">
           <el-button

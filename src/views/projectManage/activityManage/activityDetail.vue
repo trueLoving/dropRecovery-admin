@@ -1,8 +1,9 @@
 <template>
   <div class="activity-detail-container">
-    
-    <h2>活动详情</h2>
-    
+    <div class="page-header-container">
+      <el-page-header @back="goBack" content="活动详情"></el-page-header>
+    </div>
+
     <el-form ref="form" :model="user" label-width="80px">
       <el-form-item label="活动名称">
         <el-input v-model="user.title"></el-input>
@@ -42,7 +43,7 @@
     </el-form>
 
     <h2>优惠券</h2>
-    
+
     <div class="toolbar">
       <el-button
         type="primary"
@@ -83,7 +84,6 @@
     </el-table>
 
     <CouponDialog ref="CouponDialog" />
-
   </div>
 </template>
 
@@ -110,6 +110,9 @@ export default {
     };
   },
   methods: {
+    goBack(){
+      this.$router.back();
+    },
     submit() {
       api.modifyActivity(this.user).then(res => {
         this.$message.success("更新成功");
@@ -160,5 +163,9 @@ export default {
   width: 66vw;
   padding: 30px;
   margin: 0 auto;
+}
+.page-header-container {
+  border: 1px solid white;
+  margin: 30px auto;
 }
 </style>
