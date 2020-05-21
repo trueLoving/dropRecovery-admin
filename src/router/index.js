@@ -107,11 +107,11 @@ export const constantRoutes = [
         }
       },
       {
-        path: "systemMonitor",
-        component: () => import("@/views/systemManage/systemMonitor/index.vue"),
-        name: "SystemMonitor",
+        path: "serviceMonitor",
+        component: () => import("@/views/systemManage/serviceMonitor/index.vue"),
+        name: "ServiceMonitor",
         meta: {
-          title: "系统监控",
+          title: "服务监控",
           icon: 'monitor'
         }
       },

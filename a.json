@@ -1,0 +1,31 @@
+{
+    
+    "cpu": {
+        "name": "Intel(R) Xeon(R) Platinum 8269CY CPU @ 2.50GHz",
+        "package": "1个物理CPU",
+        "core": "1个物理核心",
+        "coreNumber": 1,
+        "logic": "1个逻辑CPU",
+        "used": "3.00",
+        "idle": "97.00"
+    },
+    "memory": {
+        "total": "1.8 GiB",
+        "available": "125.6 MiB",
+        "used": "1.7 GiB",
+        "usageRate": "93.17"
+    },
+    "swap": {
+        "total": "1.0 GiB",
+        "used": "222.5 MiB",
+        "available": "802.5 MiB",
+        "usageRate": "21.70"
+    },
+    "disk": {
+        "total": "39.25GB   ",
+        "available": "25.67GB   ",
+        "used": "13.57GB   ",
+        "usageRate": "34.58"
+    },
+    "time": "15:16:47"
+}
