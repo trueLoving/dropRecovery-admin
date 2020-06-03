@@ -57,7 +57,10 @@
       @pagination="getList"
     />
 
-    <BarChart />
+    <el-card class="box-card" style="margin:20px;">
+      <BarChart />
+    </el-card>
+    
   </div>
 </template>
 

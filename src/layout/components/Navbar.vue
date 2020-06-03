@@ -17,6 +17,11 @@
               首页
             </el-dropdown-item>
           </router-link>
+          <!-- <router-link to="/personCenter/index">
+            <el-dropdown-item>
+              个人中心
+            </el-dropdown-item>
+          </router-link> -->
           <el-dropdown-item>
             <span style="display:block;" @click="$refs.PwdChangeDialog.openDialog()">修改登录密码</span>
           </el-dropdown-item>

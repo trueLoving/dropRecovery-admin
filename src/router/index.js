@@ -72,21 +72,21 @@ export const constantRoutes = [
     ]
   },
 
-  {
-    path: '/dataManage',
-    component: Layout,
-    children: [
-      {
-        path: 'index',
-        component: () => import('@/views/dataManage/index'),
-        name: "dataManage",
-        meta: {
-          title: "数据管理",
-          icon: 'data'
-        }
-      }
-    ]
-  },
+  // {
+  //   path: '/dataManage',
+  //   component: Layout,
+  //   children: [
+  //     {
+  //       path: 'index',
+  //       component: () => import('@/views/dataManage/index'),
+  //       name: "dataManage",
+  //       meta: {
+  //         title: "数据管理",
+  //         icon: 'data'
+  //       }
+  //     }
+  //   ]
+  // },
 
   {
     path: '/systemManage',
@@ -125,6 +125,18 @@ export const constantRoutes = [
         }
       }
     ]
+  },
+
+  {
+    path: '/personCenter',
+    component: Layout,
+    hidden:true,
+    children: [{
+      path: 'index',
+      name: 'PersonCenter',
+      component: () => import('@/views/personCenter/index'),
+      meta: { title: '个人中心' }
+    }]
   },
 
 

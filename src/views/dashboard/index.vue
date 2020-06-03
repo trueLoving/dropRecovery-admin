@@ -1,19 +1,25 @@
 <template>
   <div class="dashboard-container">
-    
-    <PanelGroup />
+    <el-card class="box-card" style="margin:20px;">
+      <PanelGroup />
+    </el-card>
 
-    <el-row >
+    <el-row>
       <el-col :span="12">
-        <BarChart/>
+        <el-card class="box-card" style="margin:20px;">
+          <BarChart />
+        </el-card>
       </el-col>
       <el-col :span="12">
-        <PieChart/>
+        <el-card class="box-card" style="margin:20px;">
+          <PieChart />
+        </el-card>
       </el-col>
     </el-row>
 
-    <LineChart/>
-
+    <el-card class="box-card" style="margin:20px;">
+      <LineChart />
+    </el-card>
   </div>
 </template>
 
@@ -38,7 +44,6 @@ export default {
 .dashboard {
   &-container {
     margin: 30px;
-    // background-color: rgb(240, 242, 245);
   }
 }
 </style>

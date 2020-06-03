@@ -54,9 +54,11 @@
       :limit.sync="listQuery.limit"
       @pagination="getList"
     />
-    
-    <LineChart/>
 
+    <el-card class="box-card" style="margin:20px;">
+      <LineChart />
+    </el-card>
+    
   </div>
 </template>
 
@@ -68,7 +70,7 @@ import LineChart from "./components/LineChart";
 export default {
   inject: ["reload"],
   mixins: [tableMixin],
-  components:{
+  components: {
     LineChart
   },
   data() {

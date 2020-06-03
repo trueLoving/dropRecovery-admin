@@ -70,14 +70,14 @@
     <div class="chart">
       <el-row :gutter="20">
         <el-col :span="12">
-          <div class="grid-content bg-purple">
+          <el-card class="box-card" style="margin:20px;">
             <BarChart />
-          </div>
+          </el-card>
         </el-col>
         <el-col :span="12">
-          <div class="grid-content bg-purple">
+          <el-card class="box-card" style="margin:20px;">
             <LineChart />
-          </div>
+          </el-card>
         </el-col>
       </el-row>
     </div>
